@@ -15,6 +15,7 @@ expression : expression ARITH_OP expression             // Arithmetic operations
            | NUMBER                                     // Integer or float
            | STRING                                     // String literal
            | BOOLEAN                                    // Boolean values (True)
+           | CHARACTER                                  // Characters
            | array                                      // Array/list definition
            ;
 
@@ -28,4 +29,5 @@ IDENTIFIER : [a-zA-Z_][a-zA-Z_0-9]* ;      // Identifier rule (e.g., variable na
 NUMBER : [0-9]+ ('.' [0-9]+)? ;            // Integer and float numbers
 STRING : '"' .*? '"' ;                     // String literal with double quotes
 BOOLEAN : 'True' | 'False' ;               // Boolean values
+CHARACTER : '\'' .? '\'' ;                 // Characters
 WS : [ \t\r\n]+ -> skip ;                  // Skip whitespace
