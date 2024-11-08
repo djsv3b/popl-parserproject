@@ -3,7 +3,7 @@ from antlr4 import *
 from deliverable1Lexer import deliverable1Lexer
 from deliverable1Parser import deliverable1Parser
 
-
+input_code = """
 assign1 = "20"
 assign2 = 123
 assign3 = 1.23
@@ -30,3 +30,17 @@ var3 = var2 % 2
 var4 = 1
 
 flag = True
+"""
+
+lexer = deliverable1Lexer(InputStream(input_code))
+token_stream = CommonTokenStream(lexer)
+
+# Parser
+parser = deliverable1Parser(token_stream)
+
+# Parse starting from the 'program' rule
+tree = parser.program()
+
+# Output the parse tree
+print("Parse Tree:")
+print(tree.toStringTree(recog=parser))
