@@ -21,6 +21,7 @@ expression : expression ARITH_OP expression             // Arithmetic operations
            | IDENTIFIER                                 // Variable reference
            | NUMBER                                     // Integer or float
            | STRING                                     // String literal
+           | CHARACTER                                  // Character
            | BOOLEAN                                    // Boolean values (True/False)
            | array                                      // Array/list definition
            | '(' expression ')'                         // Grouped expressions
@@ -41,7 +42,8 @@ ASSIGN_OP : '=' | '+=' | '-=' | '*=' | '/=' ;
 COMP_OP : '<' | '<=' | '>' | '>=' | '==' | '!=' ;       // Comparison operators
 BOOL_OP : 'and' | 'or' ;                                // Boolean operators
 IDENTIFIER : [a-zA-Z_][a-zA-Z_0-9]* ;                   // Identifier rule (e.g., variable names)
-NUMBER : [0-9]+ ('.' [0-9]+)? ;                         // Integer and float numbers
+NUMBER : '-'? [0-9]+ ('.' [0-9]+)? ;                    // Integer and float numbers
 STRING : '"' .*? '"' ;                                  // String literal with double quotes
+CHARACTER : '\'' .? '\'' ;                              // Character
 BOOLEAN : 'True' | 'False' ;                            // Boolean values
 WS : [ \t\r\n]+ -> skip ;                               // Skip whitespace
