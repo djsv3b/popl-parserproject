@@ -1,5 +1,5 @@
 // Define the grammar
-grammar deliverable3;
+grammar popl_project;
 
 // Entry point
 program : (statement)* EOF ;
